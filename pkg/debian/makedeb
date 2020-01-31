@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+basepath="$( cd "$(dirname "$0")" ; pwd -P )"
+
+# prepare source
+rm -rf "${basepath}/source" && mkdir -p "${basepath}/source"
+cp -r "${basepath}/../../firmware" "${basepath}/source/"
+cp -r "${basepath}/debian" "${basepath}/source/"
+
+# build package
+cd "${basepath}/source"
+dpkg-buildpackage -b -us -uc

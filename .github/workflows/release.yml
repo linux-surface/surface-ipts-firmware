@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - feature/ci
+
+    tags:
+      - v[0-9]*
+      - testing-ci.*
+
+jobs:
+  debian:
+    name: Build Debian Package
+    runs-on: ubuntu-latest
+    container: debian:sid
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sed 's/^deb /deb-src /' /etc/apt/sources.list >> /etc/apt/sources.list
+        apt-get -y update
+        apt-get -y install build-essential fakeroot debhelper dpkg-sig
+
+    - name: Build package
+      run: ./pkg/debian/makedeb
+
+    - name: Sign package
+      env:
+        GPG_KEY_ID: 56C464BAAC421453
+        GPG_KEY: ${{ secrets.SURFACE_GPG_KEY }}
+      run: |
+        cd pkg/debian
+
+        # import GPG key
+        echo "$GPG_KEY" | base64 -d | gpg --import --no-tty --batch --yes
+        export GPG_TTY=$(tty)
+
+        # sign package
+        dpkg-sig -g "--batch --no-tty" --sign builder -k $GPG_KEY_ID ./*.deb
+
+    - name: Prepare release
+      run: |
+        mkdir release
+        mv ./pkg/debian/*.deb release
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: debian-latest
+        path: release

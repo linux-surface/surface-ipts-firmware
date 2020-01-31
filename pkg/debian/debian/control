@@ -1,0 +1,9 @@
+Source: surface-ipts-firmware
+Section: misc
+Priority: optional
+Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
+Build-Depends: build-essential, debhelper (>= 9)
+
+Package: surface-ipts-firmware
+Architecture: amd64
+Description: Intel Precise Touch and Stylus firmware for Microsoft Surface devices

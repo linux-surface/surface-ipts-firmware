@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+export DH_VERBOSE = 1
+
+pkgdir = debian/surface-ipts-firmware
+
+override_dh_install:
+	find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "${pkgdir}/lib/{}" \;
+
+%:
+	dh $@
