@@ -1,0 +1,15 @@
+# Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
+
+pkgname=surface-ipts-firmware
+pkgver=1.0.0
+pkgrel=1
+arch=(any)
+pkgdesc="Firmware for Intel IPTS on Microsoft Surface devices"
+url="http://github.com/linux-surface/surface-ipts-firmware"
+license=(GPL2)
+
+
+package() {
+    cd "../../../"
+	find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "${pkgdir}/usr/lib/{}" \;
+}
