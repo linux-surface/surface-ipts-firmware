@@ -11,5 +11,5 @@ license=(GPL2)
 
 package() {
     cd "../../../"
-	find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "${pkgdir}/usr/lib/{}" \;
+    find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "${pkgdir}/usr/lib/{}" \;
 }
