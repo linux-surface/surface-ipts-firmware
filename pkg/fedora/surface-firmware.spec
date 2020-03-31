@@ -1,6 +1,6 @@
 Name:       surface-firmware
 Version:    20191004
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Firmware for Microsoft Surface devices
 
 License:    proprietary
@@ -20,6 +20,9 @@ find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "%{buildroot}/us
 /usr/lib/firmware/intel/ipts
 
 %changelog
+* Tue Mar 31 2020 Dorian Stoll <dorian.stoll@tmsp.io> 20191004-2
+- Bump pkgrel
+
 * Wed Oct 02 2019 Dorian Stoll <dorian.stoll@tmsp.io>
 - Actually fix the HID descriptor on Surface Laptop instead of replacing it
 
