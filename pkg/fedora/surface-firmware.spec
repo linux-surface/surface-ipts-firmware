@@ -1,6 +1,6 @@
 Name:       surface-firmware
-Version:    20191004
-Release:    2%{?dist}
+Version:    20200402
+Release:    1%{?dist}
 Summary:    Firmware for Microsoft Surface devices
 
 License:    proprietary
@@ -20,6 +20,9 @@ find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "%{buildroot}/us
 /usr/lib/firmware/intel/ipts
 
 %changelog
+* Thu Apr 02 2020 Dorian Stoll <dorian.stoll@tmsp.io> 20200402-1
+- Bump package version to align across distributions
+
 * Tue Mar 31 2020 Dorian Stoll <dorian.stoll@tmsp.io> 20191004-2
 - Bump pkgrel
 

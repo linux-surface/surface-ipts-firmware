@@ -1,3 +1,9 @@
+surface-ipts-firmware (20200402-1) unstable; urgency=medium
+
+  * Bump package version to align across distributions
+
+ -- Dorian Stoll <dorian.stoll@tmsp.io>  Thu, 02 Apr 2020 14:15:37 +0200
+
 surface-ipts-firmware (1.0.0-2) unstable; urgency=medium
 
   * Bump pkgrel

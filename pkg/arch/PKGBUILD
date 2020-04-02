@@ -1,7 +1,7 @@
 # Maintainer: Maximilian Luz <luzmaximilian@gmail.com>
 
 pkgname=surface-ipts-firmware
-pkgver=1.0.0
+pkgver=20200402
 pkgrel=1
 arch=(any)
 pkgdesc="Firmware for Intel IPTS on Microsoft Surface devices"
