@@ -1,7 +1,9 @@
 name: Release
 
 on:
-  push: [tags]
+  push:
+    tags:
+      - '**'
 
 jobs:
   build-arch:
