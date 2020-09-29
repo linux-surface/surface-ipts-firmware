@@ -1,5 +1,5 @@
 Name:       surface-firmware
-Version:    20200402
+Version:    20200929
 Release:    1%{?dist}
 Summary:    Firmware for Microsoft Surface devices
 
@@ -20,6 +20,9 @@ find firmware -type f -name "*.bin" -exec install -D -m644 "{}" "%{buildroot}/us
 /usr/lib/firmware/intel/ipts
 
 %changelog
+* Tue Sep 29 2020 Dorian Stoll <dorian.stoll@tmsp.io> - 20200929-1
+- Bump release to build for Fedora 33
+
 * Thu Apr 02 2020 Dorian Stoll <dorian.stoll@tmsp.io> 20200402-1
 - Bump package version to align across distributions
 
